@@ -205,46 +205,32 @@ class MiddleStudent extends Student{
 
 class HighStudent extends Student{
 	
-		public HighStudent(String name ,int stuYear, int classNumber , int stuNumber ,int koreanScore, int englishScore, int mathScore, int societyScore, int scienceScore, int moralityScore, int musicScore, int physicalEducationScore, int artScore , int major ) {
+		public HighStudent(String name ,int stuYear, int classNumber , int stuNumber ,int koreanScore, int englishScore, int mathScore, int societyScore, int scienceScore, int moralityScore, int musicScore, int physicalEducationScore, int artScore , int major ,int majorScore[]) {
 			super(name,stuYear,classNumber,stuNumber,koreanScore, musicScore, mathScore, societyScore, scienceScore, moralityScore, englishScore,	physicalEducationScore, artScore);
 		
 			if(major==1){
-				liberalArts();
+				liberalArts(majorScore);
 				
-				//showInfo(koreanHistoryScore,lawScore);
 			}
 			else{
-				naturalSciences();
-				//showInfo(math2Score,chemistryScore,biologyScore);
+				naturalSciences(majorScore);
 			}
 			
 		}
 		
 		
 		
-		public void liberalArts(){ //문과
-			
-		}
-		
-		
-		public void naturalSciences(){//이과
-			
-		}
-
-		
-		private void showInfo(int koreanHistoryScore, int lawScore) {
+		private void liberalArts(int majorScore[]){ //문과
 			System.out.println("문과 : "+ " 국어 : "+ super.getKoreanScore() + "영어 : "+ super.getEnglishScore()+ "수학 : "+ super.getMathScore() + 
-					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() +"국사 : "+koreanHistoryScore + "법학 : " + lawScore);			
+					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() +"국사 : "+majorScore[0] + "법학 : " + majorScore[1]);
 		}
-
-
-		private void showInfo(int math2Score, int chemistryScore, int biologyScore) {
+		
+		
+		private void naturalSciences(int majorScore[]){//이과
 			System.out.println("국어 : "+ super.getKoreanScore() + "영어 : "+ super.getEnglishScore()+ "수학 : "+ super.getMathScore() + 
-					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() + "수2 : "+math2Score + "화학 : " + chemistryScore + "생물학 : " + biologyScore);
-			
+					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() + "수2 : "+ majorScore[0] + "화학 : " + majorScore[1] + "생물학 : " + majorScore[2]);
 		}
-	
-	
+
 }
 
 

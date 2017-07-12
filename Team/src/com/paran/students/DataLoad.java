@@ -16,6 +16,7 @@ public class DataLoad {
  	 		
  		// 파일 변수 file을 만든다 
  		File file = new File(path);
+ 		int [] major = new int[3]; 
  		
      	try { 
      		// BufferedReader 변수에 file을 넣는다 
@@ -52,16 +53,34 @@ public class DataLoad {
                      // splitedStr 을 List<Class명>에 입력하는 등 이용가능하다 
              	}
              	if(school==1){
-             	students.add(new ElementStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
-             									Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
-             									Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
-             									Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13])));
+             		students.add(new ElementStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
+             										Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
+             										Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
+             										Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13])));
              	}else if(school==2){
-             	students.add(new MiddleStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
-							Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
-							Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
-							Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13])));
-             	}            	
+             		students.add(new MiddleStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
+             										Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
+             										Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
+             										Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13])));
+             		
+             	}else if(school==3 && Integer.parseInt(splitedStr[14])==1){//문과
+             		major[0]=Integer.parseInt(splitedStr[15]);
+             		major[1]=Integer.parseInt(splitedStr[16]);
+             		students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
+								Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
+								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
+								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
+             		
+             	}else if(school==3 && Integer.parseInt(splitedStr[14])==2){ 
+             		major[0]=Integer.parseInt(splitedStr[15]);
+             		major[1]=Integer.parseInt(splitedStr[16]);
+             		major[2]=Integer.parseInt(splitedStr[17]);
+             		students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
+								Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
+								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
+								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
+             	}
+             	
              	
                
          	} 			                           
