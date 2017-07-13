@@ -23,7 +23,7 @@ public class School {
 				break;
 			}
 			case 3: {
-				path = "C:\\Student\\element.txt";
+				path = "C:\\Student\\high.txt";
 				break;
 			}
 			default : {

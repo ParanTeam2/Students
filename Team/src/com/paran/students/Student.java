@@ -1,7 +1,13 @@
 package com.paran.students;
 
-public class Student {
+abstract public class Student {
 	
+	abstract int getSub1();
+	abstract void setSub1(int sub1);
+	abstract int getSub2();
+	abstract void setSub2(int sub2);
+	abstract int getSub3();
+	abstract void setSub3(int sub3);
 	
 	private String name;				//이름
 	private int stuYear;                //학년
@@ -185,6 +191,51 @@ class ElementStudent extends Student{
 	public void showInfo(){
 		System.out.println("이름 : "+super.getName()+"학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+" 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore()+ " 사회 : "+ super.getSocietyScore()+ " 과학 : "+ super.getScienceScore() + " 도덕 : " + super.getMoralityScore()+ " 음악 : " + super.getMusicScore()+ " 체육 : " + super.getPhysicalEducationScore() + " 미술 : "+super.getArtScore() + " 슬기로운생활 : "+ wisdomAndLifeScore);
 	}
+
+
+	@Override
+	int getSub1() {
+		// TODO Auto-generated method stub
+		return wisdomAndLifeScore;
+	}
+
+
+	@Override
+	void setSub1(int sub1) {
+		this.wisdomAndLifeScore = sub1;
+		
+	}
+
+
+	@Override
+	int getSub2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	void setSub2(int sub2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	int getSub3() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	void setSub3(int sub3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 	
 }
 
@@ -201,35 +252,156 @@ class MiddleStudent extends Student{
 	public void showInfo(){
 		System.out.println("이름 : "+super.getName()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+ " 국어 : "+ super.getKoreanScore() + "영어 : "+ super.getEnglishScore()+ "수학 : "+ super.getMathScore()+ "사회 : "+ super.getSocietyScore()+ "과학 : "+ super.getScienceScore() + "기술가정"+ techniqueHomeScore);
 	}
+
+	@Override
+	int getSub1() {
+		
+		return techniqueHomeScore;
+	}
+
+	@Override
+	void setSub1(int sub1) {
+		this.techniqueHomeScore = sub1;
+		
+	}
+
+	@Override
+	int getSub2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	void setSub2(int sub2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	int getSub3() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	void setSub3(int sub3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
 
 class HighStudent extends Student{
 	
+		int koreanHistory;
+		int law;
+		int math2;
+		int chemical;
+		int biology;
+		int major;
+	
 		public HighStudent(String name ,int stuYear, int classNumber , int stuNumber ,int koreanScore, int englishScore, int mathScore, int societyScore, int scienceScore, int moralityScore, int musicScore, int physicalEducationScore, int artScore , int major ,int majorScore[]) {
 			super(name,stuYear,classNumber,stuNumber,koreanScore, musicScore, mathScore, societyScore, scienceScore, moralityScore, englishScore,	physicalEducationScore, artScore);
-		
+			
+			this.major = major;
+			
 			if(major==1){
-				liberalArts(majorScore);
+				this.koreanHistory = majorScore[0];
+				this.law = majorScore[1];
+				liberalArtsShowInfo();
 				
 			}
 			else{
-				naturalSciences(majorScore);
+				this.math2 = majorScore[0];
+				this.chemical = majorScore[1];
+				this.biology = majorScore[2];
+				naturalSciencesShowInfo();
 			}
 			
 		}
 		
 		
 		
-		private void liberalArts(int majorScore[]){ //문과
+		private void liberalArtsShowInfo(){ //문과
 			System.out.println("문과 : "+ " 국어 : "+ super.getKoreanScore() + "영어 : "+ super.getEnglishScore()+ "수학 : "+ super.getMathScore() + 
-					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() +"국사 : "+majorScore[0] + "법학 : " + majorScore[1]);
+					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() +"국사 : "+koreanHistory + "법학 : " + law);
 		}
 		
 		
-		private void naturalSciences(int majorScore[]){//이과
+		private void naturalSciencesShowInfo(){//이과
 			System.out.println("국어 : "+ super.getKoreanScore() + "영어 : "+ super.getEnglishScore()+ "수학 : "+ super.getMathScore() + 
-					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() + "수2 : "+ majorScore[0] + "화학 : " + majorScore[1] + "생물학 : " + majorScore[2]);
+					"사회 : "+ super.getSocietyScore() + "과학 : "+ super.getScienceScore() + "수2 : "+ math2 + "화학 : " + chemical + "생물학 : " + biology);
 		}
+
+
+
+		@Override
+		int getSub1() {
+			if(major==1){
+				return koreanHistory;
+			}else{
+				return math2;
+			}
+		}
+
+
+
+		@Override
+		void setSub1(int sub1) {
+			if(major==1){
+				this.koreanHistory=sub1;
+			}else{
+				this.math2=sub1;
+			}
+			
+		}
+
+
+
+		@Override
+		int getSub2() {
+			if(major==1){
+				return law;
+			}else{
+				return chemical;
+			}
+		}
+
+
+
+		@Override
+		void setSub2(int sub2) {
+			if(major==1){
+				this.law=sub2;
+			}else{
+				this.chemical=sub2;
+			}
+			
+		}
+
+
+
+		@Override
+		int getSub3() {
+			if(major==1){
+				return 0;
+			}else{
+				return biology;
+			}
+		}
+
+
+
+		@Override
+		void setSub3(int sub3) {
+			this.biology = sub3;
+			
+		}
+
+
+
+		
 
 }
 

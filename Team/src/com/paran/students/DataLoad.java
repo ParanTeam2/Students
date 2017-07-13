@@ -71,7 +71,7 @@ public class DataLoad {
 								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
 								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
              		
-             	}else if(school==3 && Integer.parseInt(splitedStr[14])==2){ 
+             	}else if(school==3 && Integer.parseInt(splitedStr[14])==2){ //이과
              		major[0]=Integer.parseInt(splitedStr[15]);
              		major[1]=Integer.parseInt(splitedStr[16]);
              		major[2]=Integer.parseInt(splitedStr[17]);
