@@ -10,8 +10,11 @@ public class School {
 		
 		String path ="";
 		int schoolSelect = Integer.parseInt((args[0]));  // 1 : 초등학교  2: 중학교  3: 고등학교
-		int classYearSelect= 1 ;
-		int classNumSelect = 1 ;
+		int classYearSelect= 1 ;   // 학년을 정할때
+		int classNumSelect = 2 ;   // 반번호정할때
+		int majorSelect = 2;  // 1 : 문과   2  : 이과
+	
+		
 		
 		switch(schoolSelect){
 			case 1: {
@@ -30,14 +33,11 @@ public class School {
 				System.out.println("학교타입을 잘못 입력했습니다");
 			}
 		}
-			
 		List<Student> students = new ArrayList<Student>();
 		DataLoad dL = new DataLoad();
-		dL.initStudent(path, students,schoolSelect);
-		System.out.println("------------------------------평균-------------------------");
-		StuRanking stuRank = new StuRanking();
-		stuRank.yearClassNumAverage(students,classYearSelect,classNumSelect);  //학년 반 평균
-		stuRank.yearAverage(students, classYearSelect);  // 학년평균
+		dL.initStudent(path, students,schoolSelect, majorSelect);
+		Teacher teacher = new Teacher(schoolSelect,students,majorSelect,classYearSelect,classNumSelect);
+		teacher.teacherShowInfo();
 	}
 
 }

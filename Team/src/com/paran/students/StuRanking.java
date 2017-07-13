@@ -15,7 +15,7 @@ public class StuRanking {
 			if(students.get(i).getStuYear()==classYearSelect){
 				
 				temp += students.get(i).getKoreanScore()+students.get(i).getEnglishScore()+students.get(i).getMathScore()+students.get(i).getSocietyScore()+students.get(i).getScienceScore()+students.get(i).getMoralityScore()+
-						students.get(i).getMusicScore()+students.get(i).getPhysicalEducationScore()+students.get(i).getArtScore()+students.get(i).getSub1()+students.get(i).getSub2()+students.get(i).getSub3();	
+						students.get(i).getMusicScore()+students.get(i).getPhysicalEducationScore()+students.get(i).getArtScore()+students.get(i).getSub1()+students.get(i).getSub2();	
 				
 				count++;
 				
@@ -47,7 +47,7 @@ public class StuRanking {
 				if(students.get(i).getClassNumber()==classNumSelect){
 					
 					temp += students.get(i).getKoreanScore()+students.get(i).getEnglishScore()+students.get(i).getMathScore()+students.get(i).getSocietyScore()+students.get(i).getScienceScore()+students.get(i).getMoralityScore()+
-							students.get(i).getMusicScore()+students.get(i).getPhysicalEducationScore()+students.get(i).getArtScore()+students.get(i).getSub1()+students.get(i).getSub2()+students.get(i).getSub3();	
+							students.get(i).getMusicScore()+students.get(i).getPhysicalEducationScore()+students.get(i).getArtScore()+students.get(i).getSub1()+students.get(i).getSub2();	
 				
 					count++;
 				

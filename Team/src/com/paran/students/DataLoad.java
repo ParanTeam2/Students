@@ -12,11 +12,11 @@ import java.util.List;
 
 public class DataLoad {
 	
-	public List<Student> initStudent(String path,List<Student> students , int school){
+	public List<Student> initStudent(String path,List<Student> students , int school ,int majorSelect){
  	 		
  		// 파일 변수 file을 만든다 
  		File file = new File(path);
- 		int [] major = new int[3]; 
+ 		
  		
      	try { 
      		// BufferedReader 변수에 file을 넣는다 
@@ -63,23 +63,24 @@ public class DataLoad {
              										Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
              										Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13])));
              		
-             	}else if(school==3 && Integer.parseInt(splitedStr[14])==1){//문과
-             		major[0]=Integer.parseInt(splitedStr[15]);
-             		major[1]=Integer.parseInt(splitedStr[16]);
+             	}else if(school==3){//이과
+             		if(Integer.parseInt(splitedStr[13])==majorSelect){
+             			
+             		int[] major = {Integer.parseInt(splitedStr[14]),Integer.parseInt(splitedStr[15])};
              		students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
 								Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
 								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
 								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
+             		}
+             		else if(Integer.parseInt(splitedStr[13])==majorSelect){
+             			int[] major = {Integer.parseInt(splitedStr[14]),Integer.parseInt(splitedStr[15])};
+             			students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
+             					Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
+             					Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
+             					Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
+             		}else{}
              		
-             	}else if(school==3 && Integer.parseInt(splitedStr[14])==2){ //이과
-             		major[0]=Integer.parseInt(splitedStr[15]);
-             		major[1]=Integer.parseInt(splitedStr[16]);
-             		major[2]=Integer.parseInt(splitedStr[17]);
-             		students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
-								Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
-								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
-								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
-             	}
+             }else{}
              	
              	
                
