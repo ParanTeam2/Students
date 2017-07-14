@@ -5,22 +5,22 @@ import java.util.List;
 
 public class StuManage {
 	
-	static DecimalFormat doubleformat = new DecimalFormat("#.##");
+	static DecimalFormat doubleformat = new DecimalFormat("#.00");
 	
-	public static void yearAverage(List<Student> students, int classYearSelect) { // 학년,반평균
+	public static void showYearAverage(List<Student> students, int classYearSelect) { // 학년,반평균
 
 		int classMaxNum = 3;
 		double[] avg = new double[classMaxNum];
 		double temp = 0; // 점수들을 담을 변수
 
 		for (int i = 0; i < classMaxNum; i++) {
-			avg[i] = yearClassNumAverage(students, classYearSelect, i + 1);
+			avg[i] = getClassAverage(students, classYearSelect, i + 1);
 			temp = temp + avg[i];
 		}
 		System.out.println(classYearSelect + "학년 평균 : " + doubleformat.format((temp = temp / classMaxNum)));
 	}
 
-	public static double yearClassNumAverage(List<Student> students, int classYearSelect, int classNumSelect) { //반평균 리턴값 넘길 함수
+	public static double getClassAverage(List<Student> students, int classYearSelect, int classNumSelect) { //반평균 리턴값 넘길 함수
 		double avg = 0;
 		double count = 0; // 나눌 학생수
 		double temp = 0; // 점수들을 담을 변수
@@ -60,7 +60,7 @@ public class StuManage {
 	}
 	
 	
-	public static void setClassNumRanking(List<Student> students, int classYearSelect, int classNumSelect) {
+	public static void setClassRanking(List<Student> students, int classYearSelect, int classNumSelect) {
 		for (int i = 0; i < students.size(); i++){
 			students.get(i).setClassRank(1);
 		}
@@ -91,7 +91,7 @@ public class StuManage {
 		int yearNum= 0 ;
 		int classNum =0;
 		
-		StuManage.setClassNumRanking(students,classYearSelect,classNumSelect);
+		StuManage.setClassRanking(students,classYearSelect,classNumSelect);
 		
 		for (int i = 0; i < students.size(); i++) {//학년 전교생수
 			if (students.get(i).getStuYear() == classYearSelect) {
@@ -142,7 +142,7 @@ public class StuManage {
 		}
 	}
 
-	public static void showInfoYear(List<Student> students, int schoolSelect, int classYearSelect, int majorSelect) {
+	public static void showInfoSelectYear(List<Student> students, int schoolSelect, int classYearSelect, int majorSelect) {
 
 		String sub1 = "";
 		String sub2 = "";

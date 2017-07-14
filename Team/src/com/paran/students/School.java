@@ -9,9 +9,9 @@ public class School {
 	public static void main(String[] args) {
 		String path ="";
 		int schoolSelect = Integer.parseInt((args[0]));  // 1 : 초등학교  2: 중학교  3: 고등학교
-		int classYearSelect= 3 ;   // 학년을 정할때
-		int classNumSelect = 3 ;   // 반번호정할때
-		int majorSelect = 2 ;  // 1 : 문과   2  : 이과
+		int classYearSelect= Integer.parseInt((args[1])) ;   // 학년을 정할때
+		int classNumSelect = Integer.parseInt((args[2])) ;   // 반번호정할때
+		int majorSelect = Integer.parseInt((args[3])) ;  // 1 : 문과   2  : 이과  else : 전공없음
 	
 		
 		
@@ -37,7 +37,7 @@ public class School {
 		dL.initStudent(path, students,schoolSelect, majorSelect);
 		
 		System.out.println("\n--------------------------------------------------------------평균--------------------------------------------------------------------------\n");
-		StuManage.yearAverage(students, classYearSelect);
+		StuManage.showYearAverage(students, classYearSelect);
 		StuManage.setRanking(students, classYearSelect);
 		
 		System.out.println("\n---------------------------------------------------------"+classYearSelect+"학년 " + classNumSelect + "반 정보"+"------------------------------------------------------------------------\n");
@@ -45,7 +45,7 @@ public class School {
 		
 		
 		System.out.println("\n--------------------------------------------------------"+classYearSelect+"학년 전체 정보"+"-------------------------------------------------------------------------\n");
-		StuManage.showInfoYear(students, schoolSelect, classYearSelect, majorSelect); //선택한 학년 정보보기
+		StuManage.showInfoSelectYear(students, schoolSelect, classYearSelect, majorSelect); //선택한 학년 정보보기
 		
 	}
 

@@ -8,6 +8,7 @@ abstract public class Student {
 	abstract void setSub1(int sub1);
 	abstract int getSub2();
 	abstract void setSub2(int sub2);
+	abstract void showInfo();
 	
 	private String name;				//이름
 	private int stuYear;                //학년
