@@ -19,7 +19,6 @@ public class Teacher {
 		this.classNumSelect = classNumSelect;
 		this.students = students;
 		System.out.println("------------------------------평균-------------------------");
-		stuRank.yearClassNumAverage(students,classYearSelect,classNumSelect);  //학년 반 평균
 		stuRank.yearAverage(students, classYearSelect);  // 학년평균
 				
 	}
@@ -52,7 +51,7 @@ public class Teacher {
 			
 			if(students.get(i).getStuYear()==classYearSelect){
 				if(students.get(i).getClassNumber()==classNumSelect){
-					System.out.println("이름 : "+students.get(i).getName()+" 학년 : "+students.get(i).getStuYear()+" 반 : "+students.get(i).getClassNumber()+" 번호 : "+students.get(i).getStuNumber()+
+					System.out.println(classYearSelect+"학년 "+classNumSelect+"반 "+students.get(i).getStuNumber()+" 번 =>"+"이름 : "+students.get(i).getName()+
 							" 국어 :"+students.get(i).getKoreanScore()+" 영어 :"+students.get(i).getEnglishScore()+" 수학 :"+students.get(i).getMathScore()+" 사회 :"+students.get(i).getSocietyScore()+
 							" 과학 :"+students.get(i).getScienceScore()+" 도덕 :"+students.get(i).getMoralityScore()+" 음악 :"+ students.get(i).getMusicScore()+" 체육 :"+students.get(i).getPhysicalEducationScore()+
 							" 미술 :"+students.get(i).getArtScore()+"  "+sub1+students.get(i).getSub1()+"  "+sub2+sub2Score);

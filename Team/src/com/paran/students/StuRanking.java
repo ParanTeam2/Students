@@ -1,5 +1,6 @@
 package com.paran.students;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StuRanking {
@@ -9,6 +10,7 @@ public class StuRanking {
 		int avg = 0;
 		int count = 0; // 나눌 학생수
 		int temp = 0;  // 점수들을 담을 변수
+		int maxClassNum=3;
 		
 		for(int i = 0; i<students.size(); i++){
 			
@@ -20,9 +22,9 @@ public class StuRanking {
 				count++;
 				
 			}
-				
-			
-			
+			if(i<3){
+			yearClassNumAverage(students, classYearSelect,i+1);
+			}
 		}
 		
 		avg = (temp/count)/9;  //과목이 9개 
@@ -34,7 +36,7 @@ public class StuRanking {
 	
 	
 	
-	public void yearClassNumAverage(List<Student> students, int classYearSelect ,int classNumSelect){   //학년 , 반 평균
+	public int yearClassNumAverage(List<Student> students, int classYearSelect ,int classNumSelect){   //학년 , 반 평균
 		
 		int avg = 0;
 		int count = 0; // 나눌 학생수
@@ -59,5 +61,7 @@ public class StuRanking {
 		
 		avg = (temp/count)/9;  //과목이 9개 
 		System.out.println(classYearSelect +"학년"+classNumSelect+"반평균 : "+avg);
+		
+		return avg;
 	}
 }

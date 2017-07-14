@@ -12,7 +12,7 @@ public class School {
 		int schoolSelect = Integer.parseInt((args[0]));  // 1 : 초등학교  2: 중학교  3: 고등학교
 		int classYearSelect= 1 ;   // 학년을 정할때
 		int classNumSelect = 2 ;   // 반번호정할때
-		int majorSelect = 2;  // 1 : 문과   2  : 이과
+		int majorSelect = 1;  // 1 : 문과   2  : 이과
 	
 		
 		
