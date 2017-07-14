@@ -6,7 +6,7 @@ abstract public class Student {
 	abstract void setSub1(int sub1);
 	abstract int getSub2();
 	abstract void setSub2(int sub2);
-	
+	abstract void showInfo();
 	
 	private String name;				//이름
 	private int stuYear;                //학년
@@ -23,6 +23,11 @@ abstract public class Student {
 	private int musicScore;				//음악	
 	private int physicalEducationScore;	//체육
 	private int artScore;				//미술
+	
+	private double average;
+	private int rank=1;
+	private int classRank = 1;
+	
 	
 	public String getName() {
 		return name;
@@ -152,8 +157,25 @@ abstract public class Student {
 		this.artScore = artScore;
 	}
 	
-	
-	
+	public double getAverage() {
+		return average;
+	}
+	public void setAverage(double average) {
+		this.average = average;
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+	public int getClassRank() {
+		return classRank;
+	}
+	public void setClassRank(int classRank) {
+		this.classRank = classRank;
+	}
 	public Student(String name,int stuYear , int classNumber , int stuNumber, int koreanScore,int englishScore,int mathScore,int societyScore,int scienceScore,int moralityScore,int musicScore,int physicalEducationScore,int artScore){
 		setName(name);
 		setStuYear(stuYear);
@@ -168,7 +190,6 @@ abstract public class Student {
 		setEnglishScore(englishScore);
 		setPhysicalEducationScore(physicalEducationScore);
 		setArtScore(artScore);
-	
 	}
 	
 	
@@ -183,6 +204,7 @@ class ElementStudent extends Student{
 		super(name,stuYear,classNumber,stuNumber,koreanScore, englishScore, mathScore, societyScore, scienceScore, moralityScore, musicScore, physicalEducationScore, artScore);
 		
 		this.wisdomAndLifeScore = wisdomAndLifeScore;
+		setAverage((koreanScore+englishScore+mathScore+societyScore+scienceScore+moralityScore+musicScore+physicalEducationScore+artScore+wisdomAndLifeScore)/10.0);
 		showInfo();
 	}
 	
@@ -229,6 +251,7 @@ class MiddleStudent extends Student{
 	public MiddleStudent(String name ,int stuYear, int classNumber , int stuNumber ,int koreanScore, int englishScore, int mathScore, int societyScore, int scienceScore,int moralityScore,  int musicScore, int physicalEducationScore, int artScore , int techniqueHomeScore) {
 		super(name,stuYear,classNumber,stuNumber,koreanScore, musicScore, mathScore, societyScore, scienceScore, moralityScore, englishScore,	physicalEducationScore, artScore);
 		this.techniqueHomeScore = techniqueHomeScore;
+		setAverage((koreanScore+englishScore+mathScore+societyScore+scienceScore+moralityScore+musicScore+physicalEducationScore+artScore+techniqueHomeScore)/10.0);
 		showInfo();
 	}
 	
@@ -280,32 +303,16 @@ class HighStudent extends Student{
 			if(major==1){
 				this.koreanHistory = majorScore[0];
 				this.law = majorScore[1];
-				liberalArtsShowInfo();
 				
 			}
 			else if(major==2){
 				this.math2 = majorScore[0];
-				this.chemical = majorScore[1];				
-				naturalSciencesShowInfo();
+				this.chemical = majorScore[1];	
+			
 			}
+			setAverage((koreanScore+englishScore+mathScore+societyScore+scienceScore+moralityScore+musicScore+physicalEducationScore+artScore+majorScore[0]+majorScore[1])/11.0);
 			
 		}
-		
-		
-		
-		private void liberalArtsShowInfo(){ //문과
-			System.out.println("문과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+ " 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
-					" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() +" 국사 : "+koreanHistory + " 법학 : " + law);
-		}
-		
-		
-		private void naturalSciencesShowInfo(){//이과 
-			System.out.println("이과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+" 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
-					" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() + " 수학2 : "+ math2 + " 화학 : " + chemical );
-		}
-
-		
-
 		@Override
 		int getSub1() {
 			if(major==1){
@@ -315,19 +322,14 @@ class HighStudent extends Student{
 			}
 		}
 
-
-
 		@Override
 		void setSub1(int sub1) {
 			if(major==1){
 				this.koreanHistory=sub1;
 			}else{
 				this.math2=sub1;
-			}
-			
+			}	
 		}
-
-
 
 		@Override
 		int getSub2() {
@@ -338,8 +340,6 @@ class HighStudent extends Student{
 			}
 		}
 
-
-
 		@Override
 		void setSub2(int sub2) {
 			if(major==1){
@@ -347,8 +347,19 @@ class HighStudent extends Student{
 			}else{
 				this.chemical=sub2;
 			}
-			
+		}
+
+		@Override
+		void showInfo() {
+			if(major==1){
+				System.out.println("문과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+ " 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
+						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() +" 국사 : "+koreanHistory + " 법학 : " + law + " 평균 : "+getAverage() + " 등수 : "+ getRank());
+			}else{
+				System.out.println("이과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+" 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
+						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() + " 수학2 : "+ math2 + " 화학 : " + chemical + " 평균 : "+getAverage() + " 등수 : "+ getRank());
+			}
 		}
 }
+
 
 

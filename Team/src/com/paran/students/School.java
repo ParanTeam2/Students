@@ -7,12 +7,11 @@ import java.util.List;
 public class School {
 
 	public static void main(String[] args) {
-		
 		String path ="";
 		int schoolSelect = Integer.parseInt((args[0]));  // 1 : 초등학교  2: 중학교  3: 고등학교
-		int classYearSelect= 1 ;   // 학년을 정할때
-		int classNumSelect = 2 ;   // 반번호정할때
-		int majorSelect = 1;  // 1 : 문과   2  : 이과
+		int classYearSelect= 3 ;   // 학년을 정할때
+		int classNumSelect = 1 ;   // 반번호정할때
+		int majorSelect = 1 ;  // 1 : 문과   2  : 이과
 	
 		
 		
@@ -36,8 +35,18 @@ public class School {
 		List<Student> students = new ArrayList<Student>();
 		DataLoad dL = new DataLoad();
 		dL.initStudent(path, students,schoolSelect, majorSelect);
-		Teacher teacher = new Teacher(schoolSelect,students,majorSelect,classYearSelect,classNumSelect);
-		teacher.teacherShowInfo();
+		
+		System.out.println("\n--------------------------------------------------------------평균--------------------------------------------------------------------------\n");
+		StuManage.yearAverage(students, classYearSelect);
+		StuManage.setRanking(students, classYearSelect);
+		
+		System.out.println("\n---------------------------------------------------------"+classYearSelect+"학년 " + classNumSelect + "반 정보"+"------------------------------------------------------------------------\n");
+		StuManage.showInfoClass(students, schoolSelect, classYearSelect, classNumSelect, majorSelect); //선택한 학년 반의 정보보기 
+		
+		
+		System.out.println("\n--------------------------------------------------------"+classYearSelect+"학년 전체 정보"+"-------------------------------------------------------------------------\n");
+		StuManage.showInfoYear(students, schoolSelect, classYearSelect, majorSelect); //선택한 학년 정보보기
+		
 	}
 
 }
