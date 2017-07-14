@@ -1,8 +1,11 @@
 package com.paran.students;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class StuManage {
+	
+	static DecimalFormat doubleformat = new DecimalFormat("#.##");
 	
 	public static void yearAverage(List<Student> students, int classYearSelect) { // 학년,반평균
 
@@ -14,7 +17,7 @@ public class StuManage {
 			avg[i] = yearClassNumAverage(students, classYearSelect, i + 1);
 			temp = temp + avg[i];
 		}
-		System.out.println(classYearSelect + "학년 평균 : " + (temp = temp / classMaxNum));
+		System.out.println(classYearSelect + "학년 평균 : " + doubleformat.format((temp = temp / classMaxNum)));
 	}
 
 	public static double yearClassNumAverage(List<Student> students, int classYearSelect, int classNumSelect) { //반평균 리턴값 넘길 함수
@@ -34,7 +37,7 @@ public class StuManage {
 			}
 		}
 		avg = temp / count;
-		System.out.println(classYearSelect + "학년" + classNumSelect + "반평균 : " + avg);
+		System.out.println(classYearSelect + "학년" + classNumSelect + "반평균 : " + doubleformat.format(avg));
 		return avg;
 	}
 
@@ -132,7 +135,7 @@ public class StuManage {
 							+ " 도덕 :" + students.get(i).getMoralityScore() + " 음악 :" + students.get(i).getMusicScore()
 							+ " 체육 :" + students.get(i).getPhysicalEducationScore() + " 미술 :"
 							+ students.get(i).getArtScore() + "  " + sub1 + students.get(i).getSub1() + "  " + sub2
-							+ sub2Score+ " 평균 : "+students.get(i).getAverage()+" 학급내등수 :"+students.get(i).getClassRank()+"/"+classNum + 
+							+ sub2Score+ " 평균 : "+doubleformat.format(students.get(i).getAverage())+" 학급내등수 :"+students.get(i).getClassRank()+"/"+classNum + 
 							" 전교등수 : "+students.get(i).getRank()+"/"+yearNum);
 				}
 			}
@@ -175,7 +178,7 @@ public class StuManage {
 						+ students.get(i).getScienceScore() + " 도덕 :" + students.get(i).getMoralityScore() + " 음악 :"
 						+ students.get(i).getMusicScore() + " 체육 :" + students.get(i).getPhysicalEducationScore()
 						+ " 미술 :" + students.get(i).getArtScore() + "  " + sub1 + students.get(i).getSub1() + "  "
-						+ sub2 + sub2Score + " 평균 : "+students.get(i).getAverage()+" 전교등수 : "+students.get(i).getRank()+"/"+yearNum);
+						+ sub2 + sub2Score + " 평균 : "+doubleformat.format(students.get(i).getAverage())+" 전교등수 : "+students.get(i).getRank()+"/"+yearNum);
 			}
 
 		}

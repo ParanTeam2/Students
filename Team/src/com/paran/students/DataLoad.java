@@ -72,16 +72,7 @@ public class DataLoad {
 								Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
 								Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
              		}
-             		else if(Integer.parseInt(splitedStr[13])==majorSelect){
-             			int[] major = {Integer.parseInt(splitedStr[14]),Integer.parseInt(splitedStr[15])};
-             			students.add(new HighStudent(splitedStr[0],Integer.parseInt(splitedStr[1]),Integer.parseInt(splitedStr[2]),Integer.parseInt(splitedStr[3]),
-             					Integer.parseInt(splitedStr[4]),Integer.parseInt(splitedStr[5]),Integer.parseInt(splitedStr[6]), Integer.parseInt(splitedStr[7]),
-             					Integer.parseInt(splitedStr[8]),Integer.parseInt(splitedStr[9]),Integer.parseInt(splitedStr[10]),Integer.parseInt(splitedStr[11]),
-             					Integer.parseInt(splitedStr[12]),Integer.parseInt(splitedStr[13]),major));
-             		}else{}
-             		
-             }else{}
-             	
+             	}
              	
                
          	} 			                           

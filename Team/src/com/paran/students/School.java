@@ -10,8 +10,8 @@ public class School {
 		String path ="";
 		int schoolSelect = Integer.parseInt((args[0]));  // 1 : 초등학교  2: 중학교  3: 고등학교
 		int classYearSelect= 3 ;   // 학년을 정할때
-		int classNumSelect = 1 ;   // 반번호정할때
-		int majorSelect = 1 ;  // 1 : 문과   2  : 이과
+		int classNumSelect = 3 ;   // 반번호정할때
+		int majorSelect = 2 ;  // 1 : 문과   2  : 이과
 	
 		
 		

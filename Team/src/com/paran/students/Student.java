@@ -1,12 +1,13 @@
 package com.paran.students;
 
+import java.text.DecimalFormat;
+
 abstract public class Student {
 	
 	abstract int getSub1();
 	abstract void setSub1(int sub1);
 	abstract int getSub2();
 	abstract void setSub2(int sub2);
-	abstract void showInfo();
 	
 	private String name;				//이름
 	private int stuYear;                //학년
@@ -303,13 +304,16 @@ class HighStudent extends Student{
 			if(major==1){
 				this.koreanHistory = majorScore[0];
 				this.law = majorScore[1];
+				showInfo();
 				
 			}
 			else if(major==2){
 				this.math2 = majorScore[0];
 				this.chemical = majorScore[1];	
+				showInfo();
 			
 			}
+			
 			setAverage((koreanScore+englishScore+mathScore+societyScore+scienceScore+moralityScore+musicScore+physicalEducationScore+artScore+majorScore[0]+majorScore[1])/11.0);
 			
 		}
@@ -349,14 +353,13 @@ class HighStudent extends Student{
 			}
 		}
 
-		@Override
-		void showInfo() {
+		public void showInfo() {
 			if(major==1){
 				System.out.println("문과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+ " 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
-						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() +" 국사 : "+koreanHistory + " 법학 : " + law + " 평균 : "+getAverage() + " 등수 : "+ getRank());
+						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() +" 국사 : "+koreanHistory + " 법학 : " + law );
 			}else{
 				System.out.println("이과 => "+"이름 : "+super.getName()+" 학년 : "+super.getStuYear()+" 반 : "+super.getClassNumber()+" 번호 : "+super.getStuNumber()+" 국어 : "+ super.getKoreanScore() + " 영어 : "+ super.getEnglishScore()+ " 수학 : "+ super.getMathScore() + 
-						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() + " 수학2 : "+ math2 + " 화학 : " + chemical + " 평균 : "+getAverage() + " 등수 : "+ getRank());
+						" 사회 : "+ super.getSocietyScore() + " 과학 : "+ super.getScienceScore() + " 수학2 : "+ math2 + " 화학 : " + chemical );
 			}
 		}
 }
